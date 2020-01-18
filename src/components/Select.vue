@@ -1,17 +1,13 @@
 <template lang="pug">
-  <div class="container">
-    <input list="order" class="select" placeholder="Выберите продукт"/>
-    <datalist id="order" v-model="chosen_item">
-      <option disabled value=""></option>
-      <option v-for="drink in drinks" :key="drink.id" :value="drink.name">{{ drink.name }}</option>
-      <optgroup label="Еда">
-        <option v-for="option in food" :key="option">{{ option }}</option>
-      </optgroup>
-      <optgroup label="Десерт">
-        <option v-for="icecream in icecreams" :key="icecream">{{ icecream }}</option>
-      </optgroup>
-    </datalist>
-  </div>
+  .container
+    input.select(list='order', onmouseover='focus(); old = value', onmousedown="value = ''", onmouseup='value = old', placeholder='Выберите продукт')
+    datalist#order(v-model='chosen_item')
+      option(v-for='drink in drinks', :key='drink.id', :value='drink.name') {{ drink.name }}
+      optgroup(label='Еда')
+        option(v-for='option in food', :key='option') {{ option }}
+      optgroup(label='Десерт')
+        option(v-for='icecream in icecreams', :key='icecream') {{ icecream }}
+      option(value=' ', readonly='') Вино
 </template>
 
 <script>

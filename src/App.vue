@@ -1,6 +1,6 @@
 <template lang="pug">
   <div id="app">
-    <Select :options="icecreams"></Select>
+    <Select :desert="icecreams" :drinks="drinks" :food="food"></Select>
   </div>
 </template>
 
@@ -17,24 +17,24 @@ export default {
       chosen_item: '',
       drinks: [
         {
-          name: 'Кока-кола',
+          name: 'кока-кола',
           id: 1
         },
         {
-          name: 'Апельсиновый сок',
+          name: 'апельсиновый сок',
           id: 2
         },
         {
-          name: 'Водичка',
+          name: 'водичка',
           id: 3
         }
       ],
       food: {
-        option1: 'Чипсоны',
-        option2: 'Борщ',
-        option3: 'Доширак',
-        option4: 'Оливье',
-        option5: 'Холодец'
+        option1: 'чипсоны',
+        option2: 'борщ',
+        option3: 'доширак',
+        option4: 'оливье',
+        option5: 'холодец'
       },
       icecreams: ['ванильное мороженое', 'шоколадное мороженое', 'сливочное мороженое']
     }

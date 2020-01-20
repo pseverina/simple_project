@@ -1,7 +1,6 @@
 <template lang="pug">
-  <div id="app">
-    <Select :desert="icecreams" :drinks="drinks" :food="food"></Select>
-  </div>
+#app
+  Select(:desert='icecreams', :drinks='drinks', :food='food')
 </template>
 
 <script>

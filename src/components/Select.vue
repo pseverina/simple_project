@@ -1,10 +1,8 @@
 <template lang="pug">
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
-    <input type="text" v-model="search" class="select" :class="{open: open}" @change="itemSelected()" @click="open = !open;" :placeholder="`${selected}`"/>
-    <div class="items" :class="{selectHide: !open}">
-      <div class="item" v-for="(option, index) in filteredList" :key="index" @click="selected = option; open = false; $emit('input', option)">{{ option }}</div>
-    </div>
-  </div>
+.custom-select(:tabindex='tabindex', @blur='open = false')
+  input.select(type='text', v-model='search', :class='{open: open}', @change='itemSelected();', @click='open = !open', :placeholder='`${selected}`')
+  .items(:class='{selectHide: !open}')
+    .item(v-for='(option, index) in filteredList', :key='index', @click="selected = option; open = false; $emit('input', option)") {{ option }}
 </template>
 
 <script>
@@ -44,7 +42,7 @@ export default {
     },
     filteredList () {
       return this.mixedArray.filter(el => {
-        return el.match(this.chosenItem)
+        return el.match(this.search)
       })
     }
   },

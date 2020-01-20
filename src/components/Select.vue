@@ -1,6 +1,6 @@
 <template lang="pug">
 .custom-select(:tabindex='tabindex', @blur='open = false')
-  input.select(type='text', v-model='search', :class='{open: open}', @change='itemSelected();', @click='open = !open', :placeholder='`${selected}`')
+  input.select(type='text', v-model='search', :class='{open: open}', @click='open = !open; itemSelected()', :placeholder='`${selected}`')
   .items(:class='{selectHide: !open}')
     .item(v-for='(option, index) in filteredList', :key='index', @click="selected = option; open = false; $emit('input', option)") {{ option }}
 </template>
@@ -50,7 +50,7 @@ export default {
     this.$emit('input', this.selected)
   },
   methods: {
-    itemSelected () {
+    async itemSelected () {
       this.search = this.selected
       this.selected = ''
     }
